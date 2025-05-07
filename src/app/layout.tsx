@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Scent Of Yonsei',
@@ -27,7 +27,11 @@ export default function RootLayout({
           content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover'
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <main className='main-background mx-auto min-w-[360px] max-w-[420px]'>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
