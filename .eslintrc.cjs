@@ -5,7 +5,7 @@ const config = {
     project: true,
   },
   ignorePatterns: ['node_modules', 'dist', 'posture_mode/*'],
-  plugins: ['@typescript-eslint', 'drizzle'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended-type-checked',
