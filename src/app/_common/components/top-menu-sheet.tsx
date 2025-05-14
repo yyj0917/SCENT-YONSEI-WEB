@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Sheet,
   SheetContent,
@@ -8,39 +10,15 @@ import {
 } from '@/app/_core/components/sheet';
 import { AlignJustify } from 'lucide-react';
 import Link from 'next/link';
+import { sheetLink } from '../constants/sheet-link.constants';
+
 export default function TopMenuSheet() {
-  const links = [
-    {
-      href: '/',
-      label: '홈',
-    },
-    {
-      href: '/notifications',
-      label: '공지사항',
-    },
-    {
-      href: '/booth',
-      label: '부스정보',
-    },
-    {
-      href: '/festival',
-      label: '공연정보',
-    },
-    {
-      href: '/location',
-      label: '주요 시설 위치',
-    },
-    {
-      href: '/makers',
-      label: '만든이들',
-    },
-  ];
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <AlignJustify />
+        <AlignJustify className='cursor-pointer' />
       </SheetTrigger>
-      <SheetContent side='left' className=''>
+      <SheetContent side='left' className='w-[80%]'>
         <div
           className='w-full h-full '
           style={{
@@ -52,7 +30,7 @@ export default function TopMenuSheet() {
           <SheetHeader className='pt-30 pl-3 flex flex-col'>
             <SheetTitle className='bg-opacity-100' />
             <SheetDescription className='pl-2'>
-              {links.map(link => (
+              {sheetLink.map(link => (
                 <span key={link.href} className='w-full flex flex-col'>
                   <Link
                     href={link.href}

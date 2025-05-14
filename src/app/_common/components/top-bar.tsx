@@ -13,15 +13,8 @@ export default function TopBar({
 }) {
   return (
     <nav className='absolute top-0 z-20 w-full'>
-      {/* 블러 배경만 적용되는 레이어 */}
-      <div
-        className={cn(
-          'absolute inset-0 z-[-1]', // blur + semi-transparent background
-          bgClassName,
-        )}
-      />
+      <div className={cn('absolute inset-0 z-[-1]', bgClassName)} />
 
-      {/* 실제 콘텐츠 영역 */}
       <div className='px-6 pt-16 pb-3 w-full flex justify-between items-center text-white'>
         <TopMenuSheet />
         <p className='text-display-m'>{title}</p>
