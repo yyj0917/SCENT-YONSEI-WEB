@@ -29,7 +29,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <main className='main-background mx-auto min-w-[360px] max-w-[420px] w-full h-screen'>
+        <main
+          id='main-layout'
+          className='main-background mx-auto min-w-[360px] max-w-[420px] w-full h-screen'
+        >
           {children}
         </main>
       </body>

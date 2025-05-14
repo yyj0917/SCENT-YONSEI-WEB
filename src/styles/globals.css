@@ -24,6 +24,9 @@
   position: relative;
   z-index: 2;
   background: url('/img/makers-background.jpg') lightgray 50% 0 / 100% auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
 }
 
 .makers-background::before {
