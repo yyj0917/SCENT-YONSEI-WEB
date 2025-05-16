@@ -3,7 +3,7 @@
 import { sectionList } from '@/app/(pages)/booth/_constants/booth-page.constants';
 import { cn } from '@/app/_core/utils/cn';
 import Image from 'next/image';
-import { Section } from '../types/booth-union.type';
+import { Section } from '../../types/booth-union.type';
 import { useQueryState } from 'nuqs';
 
 export function BoothSection({ initialSection }: { initialSection: Section }) {
@@ -11,9 +11,6 @@ export function BoothSection({ initialSection }: { initialSection: Section }) {
     defaultValue: initialSection,
   });
 
-  const handleSectionClick = (section: Section) => {
-    setSectionState(section);
-  };
   return (
     <section className='px-3 pt-4 pb-3 w-full h-auto flex flex-col gap-4 bg-white rounded-[20px] flex-shrink-0'>
       <span className='flex items-center justify-around'>
@@ -25,7 +22,7 @@ export function BoothSection({ initialSection }: { initialSection: Section }) {
               'text-display-s text-gray500 cursor-pointer',
               sectionState === section.value && 'text-point',
             )}
-            onClick={() => handleSectionClick(section.value as Section)}
+            onClick={() => setSectionState(section.value as Section)}
           >
             {section.label}
           </button>

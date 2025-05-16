@@ -2,19 +2,15 @@
 
 import { dayList } from '@/app/(pages)/booth/_constants/booth-page.constants';
 import { cn } from '@/app/_core/utils/cn';
-import { Day } from '../types/booth-union.type';
+import { Day } from '../../types/booth-union.type';
 import { useQueryState } from 'nuqs';
 export function TabDay({ initialDay }: { initialDay: Day }) {
   const [dayState, setDayState] = useQueryState('day', {
     defaultValue: initialDay,
   });
 
-  const handleDayClick = (day: Day) => {
-    setDayState(day);
-  };
-
   return (
-    <div className='pt-37 pb-8 w-full flex items-center justify-between'>
+    <div className='pb-8 w-full flex items-center justify-start gap-3'>
       {dayList.map(dayBtn => (
         <button
           key={dayBtn.day}
@@ -24,7 +20,7 @@ export function TabDay({ initialDay }: { initialDay: Day }) {
               ? 'bg-point !text-white000 text-label-l'
               : ' bg-white text-black text-label-l',
           )}
-          onClick={() => handleDayClick(dayBtn.day as Day)}
+          onClick={() => setDayState(dayBtn.day as Day)}
         >
           {dayBtn.label}
         </button>
