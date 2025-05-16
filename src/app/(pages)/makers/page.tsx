@@ -4,6 +4,7 @@ import { MakersInfo } from '@/app/_common/interfaces/makers.interface';
 import LionLogo from '@/public/svg/lion-logo.svg';
 import LikelionBrandlogo from '@/public/svg/likelion-brandlogo.svg';
 import Link from 'next/link';
+import UnderBar from '@/app/_common/components/underbar';
 
 export default function MakersPage() {
   return (
@@ -18,7 +19,7 @@ export default function MakersPage() {
           <div>
             <LikelionBrandlogo />
           </div>
-          <p className='text-display-m text-white'>멋쟁이사자처럼 13기</p>
+          <p className='text-display-m text-white'>멋쟁이사자처럼 연세 13기</p>
           <p className='text-headlint-l'>05.01 ~ 05.23</p>
         </section>
 
@@ -69,6 +70,9 @@ export default function MakersPage() {
           </Link>
         </div>
       </main>
+      <footer className='flex items-center justify-center'>
+        <UnderBar />
+      </footer>
     </div>
   );
 }
