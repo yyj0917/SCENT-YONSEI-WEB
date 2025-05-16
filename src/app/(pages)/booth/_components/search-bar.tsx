@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react';
 
-export default function SearchBar() {
+export function SearchBar() {
   return (
     <div className='px-3 py-2 w-full h-auto flex items-center justify-start gap-2 border border-gray100 rounded-[10px] bg-white'>
       <Search className='size-6 text-gray500' />
