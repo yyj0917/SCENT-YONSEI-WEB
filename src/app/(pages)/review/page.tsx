@@ -43,7 +43,7 @@ export default function ReviewPage() {
         </div>
 
         <div className='pt-[30px] pb-[53px]'>
-          <button className='px-2 py-1 w-[96px] h-[44px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+          <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
             제출하기
           </button>
         </div>
