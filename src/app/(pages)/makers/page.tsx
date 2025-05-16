@@ -59,9 +59,14 @@ export default function MakersPage() {
           <p className='text-body-s text-white text-600'>
             멋쟁이들이 궁금하다면?
           </p>
-          <button className='px-2 py-1 w-[145px] h-[44px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
-            인스타그램 바로가기
-          </button>
+          <Link
+            href='https://www.instagram.com/likelion_yonsei/'
+            target='_blank'
+          >
+            <button className='px-2 py-1 w-[145px] h-[44px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+              인스타그램 바로가기
+            </button>
+          </Link>
         </div>
       </main>
     </div>
