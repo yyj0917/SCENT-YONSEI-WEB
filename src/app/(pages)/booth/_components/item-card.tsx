@@ -1,4 +1,4 @@
-export default function ItemCard() {
+export function ItemCard() {
   return (
     <li className='w-full h-auto flex flex-col rounded-[10px] shadow-md'>
       {/* Image 드갈부분 */}
