@@ -16,9 +16,7 @@ export default function MakersPage() {
           <div className='pt-[37.13px] pb-[49.95px]'>
             <LionLogo />
           </div>
-          <div>
-            <LikelionBrandlogo />
-          </div>
+          <LikelionBrandlogo />
           <p className='text-display-m text-white'>멋쟁이사자처럼 연세 13기</p>
           <p className='text-headlint-l'>05.01 ~ 05.23</p>
         </section>
@@ -37,7 +35,7 @@ export default function MakersPage() {
                     className='flex flex-col items-center gap-1 text-white'
                   >
                     <p className='text-label-s'>{major}</p>
-                    <p className='text-headline-l font-Pretendard'>{name}</p>
+                    <p className='text-headline-l'>{name}</p>
                   </div>
                 ))}
               </div>
@@ -50,7 +48,7 @@ export default function MakersPage() {
             이용 후기를 남겨주세요!
           </p>
           <Link href='/review'>
-            <button className='px-2 py-1 w-[96px] h-[44px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
               후기 남기기
             </button>
           </Link>
@@ -64,7 +62,7 @@ export default function MakersPage() {
             href='https://www.instagram.com/likelion_yonsei/'
             target='_blank'
           >
-            <button className='px-2 py-1 w-[145px] h-[44px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
               인스타그램 바로가기
             </button>
           </Link>
