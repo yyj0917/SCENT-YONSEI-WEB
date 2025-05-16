@@ -7,7 +7,7 @@ export function SearchBar() {
       <input
         type='text'
         placeholder='부스명 또는 단체명을 입력해주세요'
-        className='text-label-l text-gray500 w-full'
+        className='text-label-l text-gray500 w-full focus:outline-none focus:ring-0'
       />
     </div>
   );
