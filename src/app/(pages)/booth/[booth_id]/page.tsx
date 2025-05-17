@@ -10,8 +10,10 @@ interface BoothDetailPageProps {
     booth_id: string;
   };
 }
-export default function BoothDetailPage({ params }: BoothDetailPageProps) {
-  const { booth_id } = params;
+export default async function BoothDetailPage({
+  params,
+}: BoothDetailPageProps) {
+  const { booth_id } = await params;
 
   return (
     <div className='relative w-full h-full flex flex-col'>
