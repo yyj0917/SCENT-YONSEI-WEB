@@ -1,3 +1,5 @@
+'use client';
+
 import { parseAsStringLiteral, useQueryState } from 'nuqs';
 import { days, sections, categories } from '../types/booth-union.type';
 

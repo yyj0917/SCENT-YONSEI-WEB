@@ -7,12 +7,8 @@ import { TabBooth } from './_components/booth-main/tab-booth';
 import { SearchBar } from './_components/booth-main/search-bar';
 import { BoothList } from './_components/booth-main/booth-list';
 import { getBoothList } from '@/app/_common/apis/booth.api';
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from '@tanstack/react-query';
 import { BoothListParams } from '@/app/_common/interfaces/booth.interface';
+import { ServerPrefetcher } from '@/app/_common/providers/server-prefetcher';
 const defaultParams: BoothListParams = {
   day: '28',
   section: 'baekyang',
@@ -21,14 +17,17 @@ const defaultParams: BoothListParams = {
 };
 
 export default async function BoothPage() {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery({
-    queryKey: ['boothList', defaultParams],
-    queryFn: () => getBoothList(defaultParams),
-  });
+  // const boothList = await getBoothList(defaultParams);
 
   return (
-    <HydrationBoundary state={dehydrate(queryClient)}>
+    <ServerPrefetcher
+      queries={[
+        {
+          queryKey: ['boothList', defaultParams],
+          queryFn: () => getBoothList(defaultParams),
+        },
+      ]}
+    >
       <div
         id='booth-page'
         className='relative w-full h-full flex flex-col items-center'
@@ -42,6 +41,6 @@ export default async function BoothPage() {
           <BoothList />
         </main>
       </div>
-    </HydrationBoundary>
+    </ServerPrefetcher>
   );
 }
