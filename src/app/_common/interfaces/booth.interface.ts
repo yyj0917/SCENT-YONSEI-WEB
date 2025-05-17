@@ -41,3 +41,13 @@ export interface BoothDetail {
   description: string;
   menu?: Menu[];
 }
+
+export interface BoothListParams {
+  search?: string;
+  day: Day;
+  section: Section;
+  category: Category;
+}
+export interface BoothDetailParams {
+  category: Category;
+}
