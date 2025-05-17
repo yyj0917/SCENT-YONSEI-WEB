@@ -1,11 +1,7 @@
 'use server';
 
-import axios from 'axios';
 import { Booth, BoothDetail } from '../interfaces/booth.interface';
 import { axiosInstance } from '../utils/axios-instance';
-import { Section } from '@/app/(pages)/booth/types/booth-union.type';
-import { Category } from '@/app/(pages)/booth/types/booth-union.type';
-import { Day } from '@/app/(pages)/booth/types/booth-union.type';
 import {
   BoothListParams,
   BoothDetailParams,
