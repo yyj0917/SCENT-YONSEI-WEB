@@ -2,25 +2,25 @@
 
 import { dayList } from '@/app/(pages)/booth/_constants/booth-page.constants';
 import { cn } from '@/app/_core/utils/cn';
-import { Day } from '../../types/booth-union.type';
-import { useQueryState } from 'nuqs';
-export function TabDay({ initialDay }: { initialDay: Day }) {
-  const [dayState, setDayState] = useQueryState('day', {
-    defaultValue: initialDay,
-  });
+import { days } from '../../types/booth-union.type';
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
+
+export function TabDay() {
+  const [dayState, setDayState] = useQueryState(
+    'day',
+    parseAsStringLiteral(days).withDefault('28'),
+  );
 
   return (
     <div className='pb-8 w-full flex items-center justify-start gap-3'>
       {dayList.map(dayBtn => (
         <button
-          key={dayBtn.day}
+          key={dayBtn.value}
           className={cn(
-            'px-4 py-[10px] rounded-full shadow-md cursor-pointer transition-all duration-300',
-            dayState === dayBtn.day
-              ? 'bg-point !text-white000 text-label-l'
-              : ' bg-white text-black text-label-l',
+            'px-4 py-[10px] rounded-full shadow-md cursor-pointer transition-all duration-300 bg-white text-black text-label-l',
+            dayState === dayBtn.value && 'bg-point !text-white000',
           )}
-          onClick={() => setDayState(dayBtn.day as Day)}
+          onClick={() => setDayState(dayBtn.value)}
         >
           {dayBtn.label}
         </button>
