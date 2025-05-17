@@ -3,13 +3,14 @@
 import { sectionList } from '@/app/(pages)/booth/_constants/booth-page.constants';
 import { cn } from '@/app/_core/utils/cn';
 import Image from 'next/image';
-import { Section } from '../../types/booth-union.type';
-import { useQueryState } from 'nuqs';
+import { sections } from '../../types/booth-union.type';
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
 
-export function BoothSection({ initialSection }: { initialSection: Section }) {
-  const [sectionState, setSectionState] = useQueryState('section', {
-    defaultValue: initialSection,
-  });
+export function BoothSection() {
+  const [sectionState, setSectionState] = useQueryState(
+    'section',
+    parseAsStringLiteral(sections).withDefault('baekyang'),
+  );
 
   return (
     <section className='px-3 pt-4 pb-3 w-full h-auto flex flex-col gap-4 bg-white rounded-[20px] flex-shrink-0'>
@@ -22,7 +23,7 @@ export function BoothSection({ initialSection }: { initialSection: Section }) {
               'text-display-s text-gray500 cursor-pointer',
               sectionState === section.value && 'text-point',
             )}
-            onClick={() => setSectionState(section.value as Section)}
+            onClick={() => setSectionState(section.value)}
           >
             {section.label}
           </button>

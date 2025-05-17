@@ -1,13 +1,17 @@
-'use client';
+// export const revalidate = 60;
 
-import { useParams } from 'next/navigation';
 import { TopBar } from '@/app/_common/components/top-bar';
 import { ImgCarousel } from '../_components/booth-detail/img-carousel';
 import { BoothInfo } from '../_components/booth-detail/booth-info';
 import { BoothLocation } from '../_components/booth-detail/booth-location';
 import { MenuList } from '../_components/booth-detail/menu-list';
-export default function BoothDetailPage() {
-  const { booth_id } = useParams();
+interface BoothDetailPageProps {
+  params: {
+    booth_id: string;
+  };
+}
+export default function BoothDetailPage({ params }: BoothDetailPageProps) {
+  const { booth_id } = params;
 
   return (
     <div className='relative w-full h-full flex flex-col'>

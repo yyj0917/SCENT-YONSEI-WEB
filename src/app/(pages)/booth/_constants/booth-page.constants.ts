@@ -1,19 +1,21 @@
-export const dayList = [
+import { Category, Day, Section } from '../types/booth-union.type';
+
+export const dayList: { label: string; value: Day }[] = [
   {
-    day: '28',
     label: 'DAY1 28일',
+    value: '28',
   },
   {
-    day: '29',
     label: 'DAY2 29일',
+    value: '29',
   },
   {
-    day: '30',
     label: 'DAY3 30일',
+    value: '30',
   },
 ];
 
-export const sectionList = [
+export const sectionList: { label: string; value: Section }[] = [
   {
     label: '백양로',
     value: 'baekyang',
@@ -28,17 +30,17 @@ export const sectionList = [
   },
 ];
 
-export const categoryList = [
+export const categoryList: { label: string; value: Category }[] = [
   {
-    name: '전체',
-    label: 'all',
+    label: '전체',
+    value: 'all',
   },
   {
-    name: '부스',
-    label: 'booth',
+    label: '부스',
+    value: 'booth',
   },
   {
-    name: '푸드트럭',
-    label: 'foodtruck',
+    label: '푸드트럭',
+    value: 'foodtruck',
   },
 ];

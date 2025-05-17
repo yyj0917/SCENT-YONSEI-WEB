@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import '@/styles/typography.css';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
-import StackProvider from './_core/stackflow/stackflow.provider';
 
 export const metadata: Metadata = {
   title: 'Scent Of Yonsei',
@@ -31,7 +30,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        {/* <StackProvider /> */}
         <NuqsAdapter>
           <main
             id='main-layout'
