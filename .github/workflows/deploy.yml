@@ -18,14 +18,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Install Mustache (for date templating)
-        run: |
-          apk add --no-cache ruby ruby-dev build-base
-          gem install mustache
-
-      - name: Build site
-        run: sh ./build.sh
-
       - name: Push to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
         id: push
         uses: cpina/github-action-push-to-another-repository@v1.7.2
