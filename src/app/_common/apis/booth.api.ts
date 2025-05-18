@@ -7,10 +7,29 @@ import {
   BoothDetailParams,
 } from '@/app/_common/interfaces/booth.interface';
 
-// booth main page all data api function
+// booth main page all data api function - 무한 캐싱
 export async function getBoothList(params: BoothListParams): Promise<Booth> {
-  const response = await axiosInstance.get('/booth', { params });
-  return response.data;
+  const { day, section, category, search } = params;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/booth?search=${search}&section=${section}&category=${category}&day=${day}`,
+      {
+        method: 'GET',
+        cache: 'force-cache',
+        next: { revalidate: false },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch booth list');
+    }
+    return response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
 
 // booth detail page detail data api function
@@ -18,6 +37,24 @@ export async function getBoothDetail(
   booth_id: string,
   params: BoothDetailParams,
 ): Promise<BoothDetail> {
-  const response = await axiosInstance.get(`/booth/${booth_id}`, { params });
-  return response.data;
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/booth/${booth_id}?category=${params.category}`,
+      {
+        method: 'GET',
+        cache: 'force-cache',
+        next: { revalidate: false },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    if (!response.ok) {
+      throw new Error('Failed to fetch booth detail');
+    }
+    return response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }

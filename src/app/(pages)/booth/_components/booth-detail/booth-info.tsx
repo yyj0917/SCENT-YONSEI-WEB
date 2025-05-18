@@ -22,7 +22,7 @@ export function BoothInfo() {
     },
   ];
   return (
-    <section className='w-80 min-h-80 h-auto px-6 py-8 flex flex-col gap-6 bg-white border border-light200 rounded-[20px] shadow-muted-foreground'>
+    <section className='w-full h-auto px-6 py-8 flex flex-col gap-6 bg-white border border-light200 rounded-[20px] shadow-muted-foreground aspect-square'>
       <div className='w-full h-auto flex flex-col items-start gap-1'>
         {/* instagram info */}
         <Link

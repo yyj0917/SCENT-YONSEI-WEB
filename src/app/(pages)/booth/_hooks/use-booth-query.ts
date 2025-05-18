@@ -1,7 +1,12 @@
 'use client';
 
 import { parseAsStringLiteral, useQueryState } from 'nuqs';
-import { days, sections, categories } from '../types/booth-union.type';
+import {
+  days,
+  sections,
+  categories,
+  searches,
+} from '../types/booth-union.type';
 
 export function useBoothQueryParams() {
   const [day] = useQueryState(
@@ -18,7 +23,7 @@ export function useBoothQueryParams() {
   );
   const [search] = useQueryState(
     'search',
-    parseAsStringLiteral(['']).withDefault(''),
+    parseAsStringLiteral(searches).withDefault(''),
   );
 
   return { day, section, category, search };

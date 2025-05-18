@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function MenuList() {
   return (
-    <section className='px-6 py-[26px] w-80 h-auto flex flex-col gap-[18px] bg-white000 rounded-[20px]'>
+    <section className='px-6 py-[26px] w-full h-auto flex flex-col gap-[18px] bg-white000 rounded-[20px]'>
       {Array.from({ length: 5 }).map((_, index) => (
         <div key={index} className='flex flex-col gap-[18px]'>
           <div className='flex items-center justify-between'>

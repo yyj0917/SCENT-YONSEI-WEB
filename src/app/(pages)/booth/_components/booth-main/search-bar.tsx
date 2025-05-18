@@ -1,13 +1,17 @@
 'use client';
 
 import { Search } from 'lucide-react';
-import { useQueryState } from 'nuqs';
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
+import { searches, SearchType } from '../../types/booth-union.type';
 
 export function SearchBar() {
-  const [searchQuery, setSearchQuery] = useQueryState('search');
-  const [inputValue, setInputValue] = useState(searchQuery ?? '');
+  const [searchQuery, setSearchQuery] = useQueryState(
+    'search',
+    parseAsStringLiteral(searches).withDefault(''),
+  );
+  const [inputValue, setInputValue] = useState<SearchType>(searchQuery ?? '');
 
   const [debouncedValue] = useDebounce(inputValue, 500);
   useEffect(() => {
@@ -30,7 +34,7 @@ export function SearchBar() {
         placeholder='부스명 또는 단체명을 입력해주세요'
         className='text-label-l text-gray500 w-full focus:outline-none focus:ring-0'
         value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
+        onChange={e => setInputValue(e.target.value as SearchType)}
         onKeyDown={handleKeyDown}
       />
     </div>

@@ -35,6 +35,7 @@ export function BoothSection() {
           alt='백양로'
           fill
           className='object-cover px-1 py-4'
+          priority
         />
       </div>
     </section>
