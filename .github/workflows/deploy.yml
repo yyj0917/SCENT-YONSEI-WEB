@@ -20,8 +20,7 @@ jobs:
 
       - name: Install Mustache (for date templating)
         run: |
-          apt-get update
-          apt-get install -y ruby-full build-essential
+          apk add --no-cache ruby ruby-dev build-base
           gem install mustache
 
       - name: Build site
