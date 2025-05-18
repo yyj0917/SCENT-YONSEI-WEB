@@ -33,13 +33,13 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.SCENT_PAT }}
         with:
-          source-directory: "output"
+          source-directory: 'output'
           destination-github-username: eric-jy-park
           destination-repository-name: SCENT-YONSEI-WEB
           user-name: GitHub Actions
           user-email: 2019147551@yonsei.ac.kr
-          commit-message: Deploy from build: ${{ github.sha }}
+          commit-message: 'Deploy from build: ${{ github.sha }}'
           target-branch: main
 
-      - name: Debug: show cloned dir
+      - name: 'Debug: show cloned dir'
         run: echo "Cloned into $DESTINATION_CLONED_DIRECTORY"
