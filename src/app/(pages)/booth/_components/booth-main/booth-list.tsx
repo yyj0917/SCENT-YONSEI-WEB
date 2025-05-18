@@ -1,0 +1,35 @@
+'use client';
+
+import { BoothCard } from './booth-card';
+import { useBoothQueryParams } from '../../_hooks/use-booth-query';
+import { BoothListKey, BoothListRecord } from '../../types/booth-union.type';
+
+export function BoothList({ record }: { record: Partial<BoothListRecord> }) {
+  const { day, section, category, search } = useBoothQueryParams();
+
+  const key = `${day}-${section}-${category}` as BoothListKey;
+  const boothData = record[key];
+
+  const filteredBoothData =
+    boothData?.booth?.filter(booth => {
+      if (search && search === '') return true; // 검색어 없으면 모두 통과
+
+      const keyword = search.toLowerCase();
+      return (
+        booth.name.toLowerCase().includes(keyword) ||
+        booth.organization.toLowerCase().includes(keyword)
+      );
+    }) ?? [];
+
+  return (
+    <section className='pt-4 pb-12 w-full grid grid-cols-2 gap-x-3 gap-y-4'>
+      <BoothCard />
+      <BoothCard />
+      <BoothCard />
+      <BoothCard />
+      <BoothCard />
+      <BoothCard />
+      <BoothCard />
+    </section>
+  );
+}
