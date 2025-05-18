@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          persist-credentials: false  # ensure only your PAT is used below
+          persist-credentials: false
 
       - name: Install Mustache (for date templating)
         run: |
@@ -31,15 +31,15 @@ jobs:
         id: push
         uses: cpina/github-action-push-to-another-repository@v1.7.2
         env:
-          API_TOKEN_GITHUB: ${{ secrets.SCENT_PAT }}     # ← your PAT with repo write access
+          API_TOKEN_GITHUB: ${{ secrets.SCENT_PAT }}
         with:
-          source-directory: "output"                     # adjust if your build folder is different
+          source-directory: 'output'
           destination-github-username: eric-jy-park
           destination-repository-name: SCENT-YONSEI-WEB
           user-name: GitHub Actions
-          user-email: 2019147551@yonsei.ac.kr       # your commit-author email
-          commit-message: Deploy from build: ${{ github.sha }}
+          user-email: 2019147551@yonsei.ac.kr
+          commit-message: 'Deploy from build: ${{ github.sha }}'
           target-branch: main
 
-      - name: Debug: show cloned dir
+      - name: 'Debug: show cloned dir'
         run: echo "Cloned into $DESTINATION_CLONED_DIRECTORY"
