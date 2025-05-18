@@ -18,11 +18,18 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Prepare output without rsync
+      - name: Prepare output
+        shell: bash
         run: |
-          mkdir -p output
-          cp -a . output/
-          rm -rf output/.git output/.github
+          # enable extglob (for “!” patterns) and dotglob (so “.*” files are included)
+          shopt -s extglob dotglob
+
+          # start fresh
+          rm -rf output
+          mkdir output
+
+          # copy every top-level entry except .git, .github, and output
+          cp -R !(.git|.github|output) output/
 
       - name: Push to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
         id: push
