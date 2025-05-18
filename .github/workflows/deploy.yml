@@ -18,10 +18,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Prepare output
+      - name: Prepare output without rsync
         run: |
           mkdir -p output
-          rsync -av --exclude='.git' --exclude='.github' ./ output/
+          cp -a . output/
+          rm -rf output/.git output/.github
 
       - name: Push to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
         id: push
