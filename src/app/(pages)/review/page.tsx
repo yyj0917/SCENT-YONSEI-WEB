@@ -30,7 +30,7 @@ export default function ReviewPage() {
 
         <div>
           <p className='flex justify-center text-label-s text-white text-400 text-center'>
-            멋쟁이사자처럼이 올해 새롭게 대동제 웹사이트를 제작하였습니다.
+            멋쟁이사자처럼이 올해 새롭게 대동제 웹사이트를 제작했습니다.
             <br />
             따뜻한 후기를 남겨주시면
             <br />
@@ -43,7 +43,7 @@ export default function ReviewPage() {
         </div>
 
         <div className='pt-[30px] pb-[53px]'>
-          <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+          <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white hover:bg-light200 shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
             제출하기
           </button>
         </div>

@@ -48,7 +48,7 @@ export default function MakersPage() {
             이용 후기를 남겨주세요!
           </p>
           <Link href='/review'>
-            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white hover:bg-light200 shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
               후기 남기기
             </button>
           </Link>
@@ -62,7 +62,7 @@ export default function MakersPage() {
             href='https://www.instagram.com/likelion_yonsei/'
             target='_blank'
           >
-            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
+            <button className='px-[16px] py-[10px] text-point text-[14px] leading-[24px] font-[700] rounded-[100px] border border-[#DFF4FF] bg-white hover:bg-light200 shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'>
               인스타그램 바로가기
             </button>
           </Link>
