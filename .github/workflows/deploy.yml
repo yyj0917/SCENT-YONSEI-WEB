@@ -18,6 +18,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Prepare output
+        run: |
+          mkdir -p output
+          cp -R SCENT-YONSEI-WEB/* output/
+
       - name: Push to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
         id: push
         uses: cpina/github-action-push-to-another-repository@v1.7.2
