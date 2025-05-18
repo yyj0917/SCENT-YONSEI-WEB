@@ -1,0 +1,45 @@
+name: Build & Deploy to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    container: pandoc/latex
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false  # ensure only your PAT is used below
+
+      - name: Install Mustache (for date templating)
+        run: |
+          apt-get update
+          apt-get install -y ruby-full build-essential
+          gem install mustache
+
+      - name: Build site
+        run: sh ./build.sh
+
+      - name: Push to https://github.com/eric-jy-park/SCENT-YONSEI-WEB
+        id: push
+        uses: cpina/github-action-push-to-another-repository@v1.7.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.SCENT_PAT }}     # ← your PAT with repo write access
+        with:
+          source-directory: "output"                     # adjust if your build folder is different
+          destination-github-username: eric-jy-park
+          destination-repository-name: SCENT-YONSEI-WEB
+          user-name: GitHub Actions
+          user-email: 2019147551@yonsei.ac.kr       # your commit-author email
+          commit-message: Deploy from build: ${{ github.sha }}
+          target-branch: main
+
+      - name: Debug: show cloned dir
+        run: echo "Cloned into $DESTINATION_CLONED_DIRECTORY"
