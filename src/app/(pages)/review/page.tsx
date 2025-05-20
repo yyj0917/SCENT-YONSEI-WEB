@@ -1,9 +1,9 @@
-import TopBar from '@/app/_common/components/top-bar';
 import { MAKERS_INFO } from '@/app/_common/constants/makers-info';
 import { MakersInfo } from '@/app/_common/interfaces/makers.interface';
 import LionLogo from '@/public/svg/lion-logo.svg';
 import LikelionBrandlogo from '@/public/svg/likelion-brandlogo.svg';
 import UnderBar from '@/app/_common/components/underbar';
+import { TopBar } from '@/app/_common/components/top-bar';
 
 export default function ReviewPage() {
   return (
