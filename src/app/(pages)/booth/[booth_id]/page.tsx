@@ -1,4 +1,4 @@
-export const revalidate = 360;
+// export const revalidate = 360;
 
 import { TopBar } from '@/app/_common/components/top-bar';
 import { ImgCarousel } from '../_components/booth-detail/img-carousel';
@@ -6,15 +6,12 @@ import { BoothInfo } from '../_components/booth-detail/booth-info';
 import { BoothLocation } from '../_components/booth-detail/booth-location';
 import { MenuList } from '../_components/booth-detail/menu-list';
 import { getBoothDetail } from '@/app/_common/apis/booth.api';
-interface BoothDetailPageProps {
-  params: {
-    booth_id: string;
-  };
-}
+
 export default async function BoothDetailPage({
-  params,
-}: BoothDetailPageProps) {
-  const { booth_id } = await params;
+  params: { booth_id },
+}: {
+  params: { booth_id: string };
+}) {
   const boothDetail = await getBoothDetail(booth_id, { category: 'booth' });
 
   return (
