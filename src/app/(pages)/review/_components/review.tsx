@@ -5,14 +5,13 @@ import React, { useState } from 'react';
 export default function Review() {
   const [review, setReview] = useState('');
   const [status, setStatus] = useState('');
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const res = await fetch('https://api.scent-yonsei.com/review', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ review }),
+      body: JSON.stringify({ content: review }),
     });
 
     if (res.status == 201) {
