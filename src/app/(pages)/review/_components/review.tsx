@@ -19,7 +19,7 @@ export default function Review() {
     setSubmitted(true);
 
     if (res.status === 201) {
-      setStatus('소중한 후기가 전달되었습니다!감사합니다🦁');
+      setStatus('소중한 후기가 전달되었습니다! 감사합니다🦁');
       setReview('');
     } else {
       setStatus('제출되지 않았습니다. 다시 시도해주세요!');

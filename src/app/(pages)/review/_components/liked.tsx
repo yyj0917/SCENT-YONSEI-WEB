@@ -46,6 +46,7 @@ export default function Liked() {
         className='px-2 py-1 w-[99px] h-[68px] text-point text-[14px] leading-[24px] font-[700] rounded-[20px] border border-[#DFF4FF] bg-white shadow-[0_0_8px_0_rgba(27,165,225,0.5)]'
       >
         💙 응원하기
+        <br />
         {like}
       </button>
     </div>
