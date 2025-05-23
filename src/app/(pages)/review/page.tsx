@@ -41,6 +41,14 @@ export default function ReviewPage() {
 
         <Review />
         <Liked />
+
+        <div className='dancing-icon'>
+          <div className='hearts-animations'>
+            <div className='heart'> </div>
+            <div className='heart'> </div>
+            <div className='heart'> </div>
+          </div>
+        </div>
       </main>
       <footer className='flex items-center justify-center'>
         <UnderBar />

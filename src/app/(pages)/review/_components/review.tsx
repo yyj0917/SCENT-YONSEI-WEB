@@ -61,7 +61,7 @@ export default function Review() {
           </div>
         </>
       ) : (
-        <div className='w-[280px] h-[210px] bg-white rounded-[20px] flex items-center justify-center text-point text-label-s text-center px-4'>
+        <div className='w-[312px] h-[198px] bg-white rounded-[20px] flex items-center justify-center text-point text-label-s text-center px-4'>
           {status}
         </div>
       )}
