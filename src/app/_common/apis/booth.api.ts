@@ -1,18 +1,17 @@
 'use server';
 
-import { Booth, BoothDetail } from '../interfaces/booth.interface';
-import { axiosInstance } from '../utils/axios-instance';
+import { type Booth, type BoothDetail } from '../interfaces/booth.interface';
 import {
-  BoothListParams,
-  BoothDetailParams,
+  type BoothListParams,
+  type BoothDetailParams,
 } from '@/app/_common/interfaces/booth.interface';
 
 // booth main page all data api function - 무한 캐싱
 export async function getBoothList(params: BoothListParams): Promise<Booth> {
-  const { day, section, category, search } = params;
+  const { day, section, category, search, foodType } = params;
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/booth?search=${search}&section=${section}&category=${category}&day=${day}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/booth?search=${search}&section=${section}&category=${category}&day=${day}&foodType=${foodType}`,
       {
         method: 'GET',
         cache: 'force-cache',
@@ -25,9 +24,18 @@ export async function getBoothList(params: BoothListParams): Promise<Booth> {
     if (!response.ok) {
       throw new Error('Failed to fetch booth list');
     }
-    return response.json();
+    const data: Booth = await response
+      .json()
+      .then(
+        (data: {
+          status: number;
+          success: boolean;
+          message: string;
+          data: Booth;
+        }) => data.data,
+      );
+    return data;
   } catch (error) {
-    console.error(error);
     throw error;
   }
 }
@@ -52,9 +60,9 @@ export async function getBoothDetail(
     if (!response.ok) {
       throw new Error('Failed to fetch booth detail');
     }
-    return response.json();
+    const { data }: { data: BoothDetail } = await response.json();
+    return data;
   } catch (error) {
-    console.error(error);
     throw error;
   }
 }

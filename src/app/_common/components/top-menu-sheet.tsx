@@ -15,7 +15,7 @@ import { sheetLink } from '../constants/sheet-link.constants';
 export default function TopMenuSheet() {
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger className='w-20 flex items-center justify-start'>
         <AlignJustify className='cursor-pointer' />
       </SheetTrigger>
       <SheetContent side='left' className='w-[80%]'>
@@ -28,7 +28,7 @@ export default function TopMenuSheet() {
           }}
         >
           <SheetHeader className='pt-30 pl-3 flex flex-col'>
-            <SheetTitle className='bg-opacity-100' />
+            <SheetTitle className='bg-opacity-100 hidden' />
             <SheetDescription className='pl-2'>
               {sheetLink.map(link => (
                 <span key={link.href} className='w-full flex flex-col'>
